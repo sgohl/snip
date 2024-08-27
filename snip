@@ -262,8 +262,10 @@ function add() {
       continue
     fi
     if [[ -z "${desc}" ]]; then
-      echo "ERROR: Description cannot be empty. Please try again."
-      continue
+      ## if desc is unset, use cmd and trim pipe+newline
+      desc="${cmd}" | tr -d '|' | tr -d '\n'
+      #echo "ERROR: Description cannot be empty. Please try again."
+      #continue
     fi
     break
   done
