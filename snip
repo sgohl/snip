@@ -263,7 +263,7 @@ function add() {
     fi
     if [[ -z "${desc}" ]]; then
       ## if desc is unset, use cmd and trim pipe+newline
-      desc="${cmd}" | tr -d '|' | tr -d '\n'
+      desc="$(echo ${cmd} | tr -d '|' | tr -d '\n')"
       #echo "ERROR: Description cannot be empty. Please try again."
       #continue
     fi
